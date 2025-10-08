@@ -16,7 +16,7 @@ export function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 border-accent border-b-2 bg-background/95">
-      <div className="container mx-auto flex items-center justify-between p-4">
+      <div className="container mx-auto flex h-16 items-center justify-between p-4">
         <Link className="flex items-center gap-4" href="/">
           <Image
             alt="Logo"
