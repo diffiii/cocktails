@@ -25,6 +25,7 @@
 *.pem
 /.claude/
 CLAUDE.md
+.mcp.json
 
 # debug
 npm-debug.log*

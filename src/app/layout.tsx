@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
+import "./globals.css";
+
+import { Footer } from "@/components/common/footer";
+import { Navbar } from "@/components/common/navbar";
 import { TanstackQueryProvider } from "@/components/providers/query-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -29,7 +32,13 @@ export default function RootLayout({
             disableTransitionOnChange
             enableSystem
           >
-            {children}
+            <div className="flex min-h-screen flex-col">
+              <Navbar />
+              <main className="container mx-auto flex-grow px-4">
+                {children}
+              </main>
+              <Footer />
+            </div>
           </ThemeProvider>
         </TanstackQueryProvider>
       </body>
