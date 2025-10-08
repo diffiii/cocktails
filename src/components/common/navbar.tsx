@@ -1,9 +1,11 @@
 "use client";
 
+import { Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { Button } from "../ui/button";
 import { ThemeToggle } from "./theme-toggle";
 
 export function Navbar() {
@@ -26,7 +28,15 @@ export function Navbar() {
           />
           <h1 className="font-bold text-xl">Cocktails</h1>
         </Link>
-        <ThemeToggle />
+        <div className="flex items-center gap-2">
+          <Button asChild variant="outline">
+            <Link href="/favorites">
+              <Heart className="h-4 w-4" />
+              Favorites
+            </Link>
+          </Button>
+          <ThemeToggle />
+        </div>
       </div>
     </nav>
   );

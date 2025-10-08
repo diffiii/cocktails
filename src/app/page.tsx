@@ -3,7 +3,7 @@ import { CocktailsList } from "@/components/common/cocktails-list";
 
 export default function Home() {
   return (
-    <div className="flex h-full items-center justify-center py-8">
+    <div className="flex h-full items-center justify-center">
       <Suspense fallback={<span>Loading...</span>}>
         <CocktailsList />
       </Suspense>
