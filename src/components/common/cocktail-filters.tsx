@@ -144,7 +144,7 @@ export function CocktailFilters() {
         </div>
 
         {/* Sort Filter */}
-        <div className="space-y-2">
+        {/* <div className="space-y-2">
           <label
             className="font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             htmlFor="sort-filter"
@@ -167,7 +167,7 @@ export function CocktailFilters() {
               <SelectItem value="+updatedAt">Recently Updated</SelectItem>
             </SelectContent>
           </Select>
-        </div>
+        </div> */}
 
         <div className="flex items-end">
           <Button className="w-40" onClick={clearFilters} variant="secondary">
