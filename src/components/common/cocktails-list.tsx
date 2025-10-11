@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 import { getCocktails } from "@/api/queries/cocktails";
 import { CocktailsPagination } from "@/components/common/cocktails-pagination";
+import { CocktailDisplay } from "./cocktail-display";
 
 export function CocktailsList() {
   const searchParams = useSearchParams();
@@ -30,9 +31,14 @@ export function CocktailsList() {
 
   return (
     <div>
-      <pre className="max-w-screen text-wrap text-justify">
+      {/* <pre className="max-w-screen text-wrap text-justify">
         {JSON.stringify(data, null, 2)}
-      </pre>
+      </pre> */}
+      <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {data.data.map((cocktail) => (
+          <CocktailDisplay cocktail={cocktail} key={cocktail.id} />
+        ))}
+      </div>
       <CocktailsPagination
         currentPage={current}
         firstPage={firstPage}
