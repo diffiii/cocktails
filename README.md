@@ -1,6 +1,6 @@
 # Cocktails
 
-KN Solvro recruitment task: Cocktails browsing app
+KN Solvro recruitment task. View demo [here](https://cocktails-rho-ruby.vercel.app/).
 
 ## Setup instructions
 
