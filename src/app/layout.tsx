@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 
 import { Footer } from "@/components/common/footer";
@@ -35,7 +36,9 @@ export default function RootLayout({
               enableSystem
             >
               <div className="flex min-h-screen flex-col">
-                <Navbar />
+                <Suspense fallback={<div className="h-16" />}>
+                  <Navbar />
+                </Suspense>
                 <main className="container mx-auto flex-grow px-4 py-8">
                   {children}
                 </main>
