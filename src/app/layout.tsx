@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { Footer } from "@/components/common/footer";
 import { Navbar } from "@/components/common/navbar";
+import { JotaiProvider } from "@/components/providers/jotai-provider";
 import { TanstackQueryProvider } from "@/components/providers/query-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 
@@ -25,22 +26,24 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${spaceGrotesk.variable} antialiased`}>
-        <TanstackQueryProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            disableTransitionOnChange
-            enableSystem
-          >
-            <div className="flex min-h-screen flex-col">
-              <Navbar />
-              <main className="container mx-auto flex-grow px-4 py-8">
-                {children}
-              </main>
-              <Footer />
-            </div>
-          </ThemeProvider>
-        </TanstackQueryProvider>
+        <JotaiProvider>
+          <TanstackQueryProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              disableTransitionOnChange
+              enableSystem
+            >
+              <div className="flex min-h-screen flex-col">
+                <Navbar />
+                <main className="container mx-auto flex-grow px-4 py-8">
+                  {children}
+                </main>
+                <Footer />
+              </div>
+            </ThemeProvider>
+          </TanstackQueryProvider>
+        </JotaiProvider>
       </body>
     </html>
   );

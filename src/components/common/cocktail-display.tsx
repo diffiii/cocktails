@@ -1,8 +1,6 @@
-import { Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardAction,
@@ -13,6 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import type { Cocktail } from "@/lib/types";
+import { FavoriteButton } from "./favorite-button";
 
 export function CocktailDisplay({ cocktail }: { cocktail: Cocktail }) {
   return (
@@ -22,9 +21,7 @@ export function CocktailDisplay({ cocktail }: { cocktail: Cocktail }) {
           <CardTitle>{cocktail.name}</CardTitle>
           <CardDescription>{cocktail.category}</CardDescription>
         </div>
-        <Button className="ml-auto" size="icon" variant="outline">
-          <Heart className="h-4 w-4" />
-        </Button>
+        <FavoriteButton cocktailId={cocktail.id.toString()} />
       </CardHeader>
       <CardAction className="flex w-full items-center justify-center">
         <Link href={`/cocktail/${cocktail.id}`}>
