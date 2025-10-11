@@ -4,7 +4,7 @@ const API_BASE_URL = "https://cocktails.solvro.pl/api/v1";
 
 export async function getCocktails(
   page = 1,
-  perPage = 12,
+  perPage = 24,
   name?: string,
   category?: string,
   glass?: string,

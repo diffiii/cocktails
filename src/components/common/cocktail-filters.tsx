@@ -55,9 +55,6 @@ export function CocktailFilters() {
     router.push(`?${params.toString()}`);
   };
 
-  const hasActiveFilters =
-    currentCategory || currentGlass || currentAlcoholic || currentSort;
-
   return (
     <div className="mb-8 flex flex-col items-center gap-4">
       <div className="flex flex-wrap justify-center gap-4">
@@ -172,13 +169,11 @@ export function CocktailFilters() {
           </Select>
         </div>
 
-        {hasActiveFilters && (
-          <div className="flex items-end">
-            <Button className="w-40" onClick={clearFilters} variant="secondary">
-              Clear Filters
-            </Button>
-          </div>
-        )}
+        <div className="flex items-end">
+          <Button className="w-40" onClick={clearFilters} variant="secondary">
+            Clear Filters
+          </Button>
+        </div>
       </div>
     </div>
   );
