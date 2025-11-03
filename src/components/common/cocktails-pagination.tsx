@@ -1,3 +1,6 @@
+"use client";
+
+import { useSearchParams } from "next/navigation";
 import {
   Pagination,
   PaginationContent,
@@ -47,6 +50,15 @@ export function CocktailsPagination({
   lastPage,
   firstPage,
 }: CocktailsPaginationProps) {
+  const searchParams = useSearchParams();
+
+  // Helper function to build pagination URL with preserved search params
+  const buildPaginationUrl = (page: number) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("page", page.toString());
+    return `?${params.toString()}`;
+  };
+
   // Generate page numbers to display
   const getPageNumbers = () => {
     const pages: (number | "ellipsis")[] = [];
@@ -88,7 +100,7 @@ export function CocktailsPagination({
         <PaginationItem>
           <PaginationPrevious
             aria-disabled={current <= firstPage}
-            href={current > firstPage ? `?page=${current - 1}` : "#"}
+            href={current > firstPage ? buildPaginationUrl(current - 1) : "#"}
           />
         </PaginationItem>
 
@@ -104,7 +116,7 @@ export function CocktailsPagination({
           return (
             <PaginationItem key={page}>
               <PaginationLink
-                href={`?page=${page}`}
+                href={buildPaginationUrl(page)}
                 isActive={page === current}
               >
                 {page}
@@ -116,7 +128,7 @@ export function CocktailsPagination({
         <PaginationItem>
           <PaginationNext
             aria-disabled={current >= lastPage}
-            href={current < lastPage ? `?page=${current + 1}` : "#"}
+            href={current < lastPage ? buildPaginationUrl(current + 1) : "#"}
           />
         </PaginationItem>
       </PaginationContent>
