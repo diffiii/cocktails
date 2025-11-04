@@ -168,9 +168,10 @@ export function CocktailFilters() {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">Default</SelectItem>
-              <SelectItem value="+id">ID</SelectItem>
               <SelectItem value="+name">Name</SelectItem>
               <SelectItem value="+updatedAt">Recently Updated</SelectItem>
+              <SelectItem value="+glass">Glass</SelectItem>
+              <SelectItem value="+category">Category</SelectItem>
             </SelectContent>
           </Select>
         </div>

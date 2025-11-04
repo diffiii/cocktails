@@ -9,7 +9,7 @@ export async function getCocktails(
   category?: string,
   glass?: string,
   alcoholic?: boolean,
-  sort?: "+id" | "+name" | "+updatedAt"
+  sort?: "+id" | "+name" | "+updatedAt" | "+glass" | "+category"
 ): Promise<APIResponse<Cocktail[]>> {
   const params = new URLSearchParams({
     page: page.toString(),
